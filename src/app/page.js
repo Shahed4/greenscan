@@ -1,6 +1,10 @@
 import styles from "./page.module.css";
+import { getSession } from "@auth0/nextjs-auth0";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getSession();
+  const user = session?.user || null;
+
   return (
     <div className={styles.document}>
       <video autoPlay loop muted className={styles.backgroundVideo}>
@@ -8,7 +12,18 @@ export default function Home() {
       </video>
       <div className={styles.container}>
         <div className={styles.topnav}>
-          <a className={styles.signin} href="/api/auth/login">Login</a>  
+          {user ? (
+            <a className={styles.signin} href="/api/auth/logout">
+              Logout
+            </a>
+          ) : (
+            <a
+              className={styles.signin}
+              href="/api/auth/login?returnTo=/image-processing"
+            >
+              Login
+            </a>
+          )}
         </div>
         <div>
           <h1 className={styles.header}>WELCOME!</h1>
@@ -20,7 +35,10 @@ export default function Home() {
           </div>
           <div className={styles.feature}>
             <h2>Engage</h2>
-            <p>Join a community committed to sustainability and eco-friendly practices.</p>
+            <p>
+              Join a community committed to sustainability and eco-friendly
+              practices.
+            </p>
           </div>
           <div className={styles.feature}>
             <h2>Take Action</h2>
