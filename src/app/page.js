@@ -75,8 +75,15 @@ export default async function Home() {
       </section>
 
       {/* Section 2 */}
-      <section id="section2" className={`${styles.section} ${styles.newsSection}`}>
-  <h1 className={styles.newsHeader}>Latest News on Garbage Cleanup and Recycling</h1>
+      <section
+  id="section2"
+  className={`${styles.section} ${styles.newsSection}`}
+  style={{ backgroundImage: "url('/newsBackground.jpg')" }}
+>
+
+  <div className={styles.newsHeader}>
+  <h1 className={styles.newsHeaderh1}><strong>Latest News</strong> </h1>
+  </div>
   <div className={styles.newsGrid}>
     <div className={styles.newsItem}>
       <img src="./community.jpg" alt="Community Cleanup" className={styles.newsImage} />
