@@ -11,30 +11,30 @@ export default withPageAuthRequired(async function ImageProcessing(context) {
   return (
     <div className={styles.container}>
       <nav className={styles.topnav}>
-        <Link href="/" className={`${styles.link} ${styles.signin}`}>
-          Home
+        <Link href="/" className={styles.logoContainer}>
+          <img className={styles.img} src="/logo.png" alt="Logo" />
+          <div className={styles.brand}>
+            <h2 className={styles.firstbrand}>Green</h2>
+            <h2 className={styles.secondbrand}>Scan</h2>
+          </div>
         </Link>
-        <Link
-          href="/image-processing"
-          className={`${styles.link} ${styles.signin}`}
-        >
-          Processing
-        </Link>
-        {user ? (
-          <Link
-            href="/api/auth/logout"
-            className={`${styles.link} ${styles.signin}`}
-          >
-            Logout
-          </Link>
-        ) : (
-          <Link
-            href="/api/auth/login?returnTo=/image-processing"
-            className={`${styles.link} ${styles.signin}`}
-          >
-            Login
-          </Link>
-        )}
+        <div className={styles.navLinks}>
+          {user ? (
+            <Link
+              href="/api/auth/logout"
+              className={`${styles.link} ${styles.signin}`}
+            >
+              Logout
+            </Link>
+          ) : (
+            <Link
+              href="/api/auth/login?returnTo=/image-processing"
+              className={`${styles.link} ${styles.signin}`}
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </nav>
 
       <div className={styles.content}>

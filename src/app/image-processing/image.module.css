@@ -15,14 +15,49 @@
 }
 
 .topnav {
-  position: absolute;
-  top: 0;
-  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  padding: 15px;
-  background-color: rgba(173, 216, 230, 0.9); /* Light blue background */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Logo and Brand Styling */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 0;
+}
+
+.logoContainer:hover {
+  background-color: transparent;
+}
+
+.img {
+  height: 50px;
+  width: auto;
+}
+
+.brand {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.firstbrand {
+  color: white;
+}
+
+.secondbrand {
+  color: black;
 }
 
 .link {
