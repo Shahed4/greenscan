@@ -28,9 +28,9 @@ const ObjectDetection = () => {
     detectFrame();
   }
 
-  const goHome = () => {
-    console.log("Went Home");
-    router.push("/"); // Route to home page
+  const goGen = () => {
+    console.log("Go to AI page");
+    router.push("/image-processing/gen-ai"); // Route to home page
     console.log("End: ", uniqueDisplayNames);
   };
 
@@ -117,7 +117,7 @@ const ObjectDetection = () => {
                 cursor: "pointer",
                 borderRadius: "8px",
               }}
-              onClick={goHome} // Call goHome on click
+              onClick={goGen} // Call goHome on click
             >
               Wow
             </button>
