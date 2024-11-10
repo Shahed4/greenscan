@@ -1,6 +1,6 @@
 /* Wrapper for full-page scrolling with snapping */
 .wrapper {
-  background-color: #CCC;
+  background-color: #ccc;
   width: 100%;
   position: absolute;
   top: 0;
@@ -98,8 +98,6 @@
 .newsLink:hover {
   color: #005b99;
 }
-
-
 
 /* Main Document Container */
 .document {
