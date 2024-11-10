@@ -1,8 +1,8 @@
 /* Full-page Background and Container */
 .container {
   position: absolute;
-  x: 0;
-  y: 0; /* Changed to relative for scrollable behavior */
+  /* x: 0;
+  y: 0; Changed to relative for scrollable behavior */
   min-height: 100vh;
   width: 100vw;
   background: url("../../../../public/ai3.jpg") no-repeat center center fixed;
