@@ -7,6 +7,9 @@ import { load as cocoSSDLoad } from "@tensorflow-models/coco-ssd";
 import * as tf from "@tensorflow/tfjs";
 import { renderPredictions } from "../utils/render-predictions";
 import { useRouter } from "next/navigation"; // Import useRouter
+import { uniqueDisplayNames } from "../utils/render-predictions";
+
+
 
 const ObjectDetection = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +33,7 @@ const ObjectDetection = () => {
   const goHome = () => {
     console.log("Went Home");
     router.push("/"); // Route to home page
+    console.log("End: ", uniqueDisplayNames);
   };
 
   async function runObjectDetection(net) {
