@@ -1,16 +1,36 @@
 "use client";
 import React, { useState } from "react";
+import styles from "./gen-ai.module.css";
 
 export default function GenAi() {
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Replace `uniqueDisplayNames` with your imported value
-  const { uniqueDisplayNames } = require("../../../../utils/render-predictions");
+  const {
+    uniqueDisplayNames,
+  } = require("../../../../utils/render-predictions");
 
   const handleGenerateResponse = async () => {
     setIsLoading(true);
-    const prompt = `What are some sustainable ways to use the following items: ${uniqueDisplayNames.join(", ")}`;
+    const prompt = `You are a creative sustainability assistant focused on providing eco-friendly solutions to help users reduce their carbon footprint and minimize waste. Suggest practical, innovative, and resourceful ways to sustainably reuse common household items, encouraging habits that promote environmental consciousness. Your responses should prioritize simplicity and cost-effectiveness, making sustainable practices accessible for people at all levels of experience.
+
+Please respond in strict JSON format without any additional text, comments, or code blocks. Use this exact structure:
+
+{
+  "items": [
+    {
+      "name": "Item Name",
+      "suggestions": [
+        { "title": "Suggestion Title 1", "description": "Detailed description of suggestion 1" },
+        { "title": "Suggestion Title 2", "description": "Detailed description of suggestion 2" }
+      ]
+    }
+  ]
+}
+
+Order each list with biodegradable items at the top, followed by other items ranked by sustainable impact and environmental benefit. Respond in this exact JSON format for each item in the following list: ${uniqueDisplayNames.join(
+      ", "
+    )}`;
 
     try {
       const res = await fetch("/api/openai-response", {
@@ -22,28 +42,53 @@ export default function GenAi() {
       });
 
       const data = await res.json();
-      setResponse(data.text);
-      console.log("Passed");
+      setResponse(JSON.parse(data.text));
     } catch (error) {
-      console.error("Error fetching response:", error);
+      console.error("Error fetching or parsing response:", error);
+      setResponse(null);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div>
-      <h1>These are:</h1>
-      <ul>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Unique Items</h1>
+      <ul className={styles.itemList}>
         {uniqueDisplayNames.map((name, index) => (
-          <li key={index}>{name}</li>
+          <li key={index} className={styles.item}>
+            {name}
+          </li>
         ))}
       </ul>
-      <button onClick={handleGenerateResponse} disabled={isLoading}>
+      <button
+        className={styles.button}
+        onClick={handleGenerateResponse}
+        disabled={isLoading}
+      >
         Generate AI Response
       </button>
-      {isLoading && <p>Loading...</p>}
-      {response && <p>AI Response: {response}</p>}
+      {isLoading && <p className={styles.loading}>Loading...</p>}
+      {response && (
+        <div className={styles.responseContainer}>
+          <h2 className={styles.responseHeading}>AI Response</h2>
+          {response.items.map((item, index) => (
+            <div key={index} className={styles.responseItem}>
+              <h3 className={styles.itemName}>{item.name}</h3>
+              <ul className={styles.suggestionList}>
+                {item.suggestions.map((suggestion, idx) => (
+                  <li key={idx} className={styles.suggestion}>
+                    <strong className={styles.suggestionTitle}>
+                      {suggestion.title}:
+                    </strong>{" "}
+                    {suggestion.description}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
