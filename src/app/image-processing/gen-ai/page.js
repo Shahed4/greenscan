@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./gen-ai.module.css";
+import Link from "next/link";
 
 export default function GenAi() {
   const [response, setResponse] = useState(null);
@@ -53,6 +54,29 @@ Order each list with biodegradable items at the top, followed by other items ran
 
   return (
     <div className={styles.container}>
+      <nav className={styles.topnav}>
+        <Link href="/" className={styles.logoContainer}>
+          <img className={styles.img} src="/logo.png" alt="Logo" />
+          <div className={styles.brand}>
+            <h2 className={styles.firstbrand}>Green</h2>
+            <h2 className={styles.secondbrand}>Scan</h2>
+          </div>
+        </Link>
+        <div className={styles.navLinks}>
+          <Link
+            href="/image-processing"
+            className={`${styles.link} ${styles.processing}`}
+          >
+            Processing
+          </Link>
+          <Link
+            href="/api/auth/logout"
+            className={`${styles.link} ${styles.signin}`}
+          >
+            Logout
+          </Link>
+        </div>
+      </nav>
       <h1 className={styles.heading}>Unique Items</h1>
       <ul className={styles.itemList}>
         {uniqueDisplayNames.map((name, index) => (
