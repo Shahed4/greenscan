@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center the main content */
+  justify-content: center;
 }
 
 /* Background Video Styling */
@@ -41,10 +41,11 @@
 /* Navigation Bar Styling */
 .topnav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  height: 60px;
   padding: 10px 20px;
-  background-color: rgba(0, 122, 204, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -52,8 +53,46 @@
   box-sizing: border-box;
 }
 
-.topnav a {
-  color: #fff;
+/* Logo and Brand Styling */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 0;
+}
+
+.logoContainer:hover {
+  background-color: transparent; /* Remove hover effect */
+}
+
+.img {
+  height: 50px;
+  width: auto;
+}
+
+.brand {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.firstbrand {
+  color: white;
+}
+
+.secondbrand {
+  color: black;
+}
+
+/* Nav Links Container */
+.navLinks {
+  display: flex;
+  gap: 10px;
+}
+
+.navLinks a {
+  color: white;
   text-decoration: none;
   padding: 8px 16px;
   font-size: 14px;
@@ -61,31 +100,14 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover Effect for Links in Nav Bar */
-.topnav a:hover {
-  background-color: rgba(0, 95, 163, 0.8); /* Darker background on hover */
-}
-
-/* Signin Button Styling */
-.signin {
-  background-color: rgba(0, 95, 163, 0.8);
-}
-
 /* Header Styling */
 .header {
   font-size: 4rem;
   color: white;
-  margin-top: 80px; /* Space to avoid overlap with navbar */
+  margin-top: 80px;
 }
 
-/* Intro Text Styling */
-.intro {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  max-width: 600px;
-}
-
-/* Features Section Styling */
+/* Features Section */
 .features {
   display: flex;
   justify-content: space-around;
@@ -95,7 +117,7 @@
   box-sizing: border-box;
 }
 
-/* Individual Feature Box Styling */
+/* Individual Feature Box */
 .feature {
   background-color: rgba(224, 247, 250, 0.8);
   border-radius: 10px;
@@ -107,15 +129,45 @@
   text-align: center;
 }
 
-/* Feature Heading Styling */
 .feature h2 {
   font-size: 1.2rem;
   color: #007acc;
   margin-bottom: 8px;
 }
 
-/* Feature Paragraph Styling */
 .feature p {
   font-size: 0.9rem;
   line-height: 1.4;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  bottom: 0;
+}
+
+.footerButton {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.link:hover {
+  background-color: #005b99;
+}
+
+.copyright {
+  color: #555;
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
