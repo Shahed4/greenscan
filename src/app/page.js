@@ -74,10 +74,61 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Section 2: Black Screen with "TEST" */}
-      <section id="section2" className={`${styles.section} ${styles.blackScreen}`}>
-        <h1 className={styles.testText}>TEST</h1>
-      </section>
+      {/* Section 2 */}
+      <section id="section2" className={`${styles.section} ${styles.newsSection}`}>
+  <h1 className={styles.newsHeader}>Latest News on Garbage Cleanup and Recycling</h1>
+  <div className={styles.newsGrid}>
+    <div className={styles.newsItem}>
+      <img src="./community.jpg" alt="Community Cleanup" className={styles.newsImage} />
+      <div className={styles.newsContent}>
+        <p className={styles.newsDate}>14 October</p>
+        <h2 className={styles.newsTitle}>Community Cleanup Drives Increase in Local Parks</h2>
+        <p>Efforts by volunteers are making a big impact on local ecosystems.</p>
+        <a href="https://example.com/community-cleanup" target="_blank" rel="noopener noreferrer" className={styles.newsLink}>Read More</a>
+      </div>
+    </div>
+
+    <div className={styles.newsItem}>
+      <img src="./initiative.jpg" alt="Recycling Initiatives" className={styles.newsImage} />
+      <div className={styles.newsContent}>
+        <p className={styles.newsDate}>6 September</p>
+        <h2 className={styles.newsTitle}>New Recycling Initiatives Launched by City Council</h2>
+        <p>The city introduces recycling programs to reduce landfill waste.</p>
+        <a href="https://example.com/recycling-initiatives" target="_blank" rel="noopener noreferrer" className={styles.newsLink}>Read More</a>
+      </div>
+    </div>
+
+    <div className={styles.newsItem}>
+      <img src="./cleanup.jpg" alt="Beach Cleanup" className={styles.newsImage} />
+      <div className={styles.newsContent}>
+        <p className={styles.newsDate}>16 August</p>
+        <h2 className={styles.newsTitle}>School Students Participate in Beach Cleanup</h2>
+        <p>Students help clear plastic waste from local beaches.</p>
+        <a href="https://example.com/beach-cleanup" target="_blank" rel="noopener noreferrer" className={styles.newsLink}>Read More</a>
+      </div>
+    </div>
+
+    <div className={styles.newsItem}>
+      <img src="./building.jpg" alt="Recycling Plant" className={styles.newsImage} />
+      <div className={styles.newsContent}>
+        <p className={styles.newsDate}>22 July</p>
+        <h2 className={styles.newsTitle}>Innovative Recycling Plant Opens in Downtown</h2>
+        <p>This new plant promises to recycle 70% of incoming waste.</p>
+        <a href="https://example.com/recycling-plant" target="_blank" rel="noopener noreferrer" className={styles.newsLink}>Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
       {/* Section 3 */}
       <section id="section3" className={styles.section}>
