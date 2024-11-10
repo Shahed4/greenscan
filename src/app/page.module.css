@@ -5,10 +5,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99999; 
-  height: 800px;
+  z-index: 99999;
+  height: 100vh; /* Full viewport height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-snap-type: y mandatory; /* Enable snap scrolling */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 /* Each section takes full height of the viewport and snaps to the start */
 .section {
@@ -22,17 +26,80 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Section 2: Black screen with centered "TEST" text */
-.blackScreen {
-  background-color: black;
+.newsSection {
+  background-color: #a8d0ff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.testText {
-  color: white;
-  font-size: 4rem;
-  font-family: Arial, sans-serif;
+.newsHeader {
+  font-size: 2rem;
+  color: #007acc;
+  margin-bottom: 20px;
+  text-align: center;
 }
+
+.newsGrid {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto; /* Allows horizontal scrolling if items don't fit */
+  justify-content: center; /* Center items within the container */
+  width: 100%;
+  padding: 20px 0;
+}
+
+.newsItem {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-width: 300px;
+}
+
+.newsImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.newsContent {
+  padding: 20px;
+  text-align: left;
+}
+
+.newsDate {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.newsTitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.newsLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #007acc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.newsLink:hover {
+  color: #005b99;
+}
+
+
 
 /* Main Document Container */
 .document {
