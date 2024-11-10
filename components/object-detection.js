@@ -57,7 +57,7 @@ const ObjectDetection = () => {
   return (
     <div className={styles.container}>
       {isLoading ? (
-        <div className={styles.loading}>Loading AI Model...</div>
+        <div className={styles.loading}>Loading Detection Model...</div>
       ) : (
         <>
           <div className={styles.videoContainer}>
