@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import { getSession } from "@auth0/nextjs-auth0";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await getSession();
@@ -10,24 +11,36 @@ export default async function Home() {
       <video autoPlay loop muted className={styles.backgroundVideo}>
         <source src="/34_24_08_19 (2).mp4" type="video/mp4" />
       </video>
+
       <div className={styles.container}>
-        <div className={styles.topnav}>
+        <nav className={styles.topnav}>
+          <Link href="/" className={styles.link}>
+            Home
+          </Link>
+          <Link href="/image-processing" className={styles.link}>
+            Processing
+          </Link>
           {user ? (
-            <a className={styles.signin} href="/api/auth/logout">
+            <Link
+              href="/api/auth/logout"
+              className={`${styles.link} ${styles.signin}`}
+            >
               Logout
-            </a>
+            </Link>
           ) : (
-            <a
-              className={styles.signin}
+            <Link
               href="/api/auth/login?returnTo=/image-processing"
+              className={`${styles.link} ${styles.signin}`}
             >
               Login
-            </a>
+            </Link>
           )}
-        </div>
+        </nav>
+
         <div>
           <h1 className={styles.header}>WELCOME!</h1>
         </div>
+
         <div className={styles.features}>
           <div className={styles.feature}>
             <h2>Learn</h2>
