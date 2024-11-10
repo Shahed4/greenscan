@@ -96,21 +96,23 @@ Order each list with biodegradable items at the top, followed by other items ran
       {response && (
         <div className={styles.responseContainer}>
           <h2 className={styles.responseHeading}>AI Response</h2>
-          {response.items.map((item, index) => (
-            <div key={index} className={styles.responseItem}>
-              <h3 className={styles.itemName}>{item.name}</h3>
-              <ul className={styles.suggestionList}>
-                {item.suggestions.map((suggestion, idx) => (
-                  <li key={idx} className={styles.suggestion}>
-                    <strong className={styles.suggestionTitle}>
-                      {suggestion.title}:
-                    </strong>{" "}
-                    {suggestion.description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className={styles.responseBody}>
+            {response.items.map((item, index) => (
+              <div key={index} className={styles.responseItem}>
+                <h3 className={styles.itemName}>{item.name}</h3>
+                <ul className={styles.suggestionList}>
+                  {item.suggestions.map((suggestion, idx) => (
+                    <li key={idx} className={styles.suggestion}>
+                      <strong className={styles.suggestionTitle}>
+                        {suggestion.title}:
+                      </strong>{" "}
+                      {suggestion.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
