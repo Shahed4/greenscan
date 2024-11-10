@@ -6,20 +6,21 @@ import Webcam from "react-webcam";
 import { load as cocoSSDLoad } from "@tensorflow-models/coco-ssd";
 import * as tf from "@tensorflow/tfjs";
 import { renderPredictions } from "../utils/render-predictions";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import { uniqueDisplayNames } from "../utils/render-predictions";
+import styles from "./object-detection.module.css";
 
 const ObjectDetection = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   async function runCoco() {
-    setIsLoading(true); // Indicate that the model is loading
+    setIsLoading(true);
     const net = await cocoSSDLoad();
-    setIsLoading(false); // Model has loaded
+    setIsLoading(false);
 
     const detectFrame = async () => {
       await runObjectDetection(net);
@@ -29,30 +30,21 @@ const ObjectDetection = () => {
   }
 
   const goGen = () => {
-    console.log("Go to AI page");
-    router.push("/image-processing/gen-ai"); // Route to home page
-    console.log("End: ", uniqueDisplayNames);
+    router.push("/image-processing/gen-ai");
   };
 
   async function runObjectDetection(net) {
     if (webcamRef.current && webcamRef.current.video.readyState === 4) {
       const video = webcamRef.current.video;
-
-      // Get video properties
       const videoWidth = video.videoWidth;
       const videoHeight = video.videoHeight;
 
-      // Set video and canvas width and height
       webcamRef.current.video.width = videoWidth;
       webcamRef.current.video.height = videoHeight;
-
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
-      // Make detections
       const detectedObjects = await net.detect(video);
-
-      // Get canvas context
       const ctx = canvasRef.current.getContext("2d");
       renderPredictions(detectedObjects, ctx);
     }
@@ -63,65 +55,22 @@ const ObjectDetection = () => {
   }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className={styles.container}>
       {isLoading ? (
-        <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-          Loading AI Model...
-        </div>
+        <div className={styles.loading}>Loading AI Model...</div>
       ) : (
         <>
-          <div
-            style={{
-              position: "relative",
-              width: "640px",
-              height: "480px",
-              margin: "0 auto",
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-            }}
-          >
-            {/* Webcam video */}
+          <div className={styles.videoContainer}>
             <Webcam
               ref={webcamRef}
               audio={false}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: 1,
-              }}
+              className={styles.webcam}
             />
-
-            {/* Canvas overlay */}
-            <canvas
-              ref={canvasRef}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: 2,
-              }}
-            />
+            <canvas ref={canvasRef} className={styles.canvas} />
           </div>
-
-          {/* Button positioned underneath the webcam */}
-          <div style={{}}>
-            <button
-              style={{
-                padding: "10px 20px",
-                fontSize: "1rem",
-                cursor: "pointer",
-                borderRadius: "8px",
-              }}
-              onClick={goGen} // Call goHome on click
-            >
-              Wow
-            </button>
-          </div>
+          <button className={styles.button} onClick={goGen}>
+            Complete Scan
+          </button>
         </>
       )}
     </div>

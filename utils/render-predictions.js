@@ -49,14 +49,3 @@ export const renderPredictions = (predictions, ctx) => {
   // Log the array of unique display names
   console.log("Unique Display Names:", uniqueDisplayNames);
 };
-
-// Function to stop adding items when button is clicked
-export const stopAddingItems = () => {
-  addingAllowed = false;
-};
-
-// Create and add button to the DOM
-const button = document.createElement("button");
-button.innerText = "Stop Adding Items";
-button.onclick = stopAddingItems;
-document.body.appendChild(button);
