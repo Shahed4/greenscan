@@ -9,8 +9,6 @@ import { renderPredictions } from "../utils/render-predictions";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { uniqueDisplayNames } from "../utils/render-predictions";
 
-
-
 const ObjectDetection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter(); // Initialize router
@@ -65,7 +63,7 @@ const ObjectDetection = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "2rem", textAlign: "center" }}>
+    <div style={{ textAlign: "center" }}>
       {isLoading ? (
         <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
           Loading AI Model...
@@ -111,7 +109,7 @@ const ObjectDetection = () => {
           </div>
 
           {/* Button positioned underneath the webcam */}
-          <div style={{ marginTop: "20px" }}>
+          <div style={{}}>
             <button
               style={{
                 padding: "10px 20px",
