@@ -1,105 +1,121 @@
+/* Main Document Container */
 .document {
-    background-color: transparent;
-    position: fixed;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the main content */
+  background-color: transparent;
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the main content */
 }
 
-
+/* Background Video Styling */
 .backgroundVideo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
+/* Main Container Styling */
 .container {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    color: #333;
-    position: relative;
-    z-index: 1;
-    padding: 10px 20px;
-    width: 100%;
-    max-width: 900px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Navigation Bar Styling */
 .topnav {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: rgba(0, 122, 204, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: rgba(0, 122, 204, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
 .topnav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
+/* Hover Effect for Links in Nav Bar */
+.topnav a:hover {
+  background-color: rgba(0, 95, 163, 0.8); /* Darker background on hover */
+}
+
+/* Signin Button Styling */
 .signin {
-    background-color: rgba(0, 95, 163, 0.8);
+  background-color: rgba(0, 95, 163, 0.8);
 }
 
+/* Header Styling */
 .header {
-    font-size: 4rem;
-    color: white;
-    margin-top: 80px; /* Space to avoid overlap with navbar */
+  font-size: 4rem;
+  color: white;
+  margin-top: 80px; /* Space to avoid overlap with navbar */
 }
 
+/* Intro Text Styling */
 .intro {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    max-width: 600px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 600px;
 }
 
+/* Features Section Styling */
 .features {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Individual Feature Box Styling */
 .feature {
-    background-color: rgba(224, 247, 250, 0.8);
-    border-radius: 10px;
-    padding: 15px;
-    width: 28%;
-    min-width: 150px;
-    max-width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  background-color: rgba(224, 247, 250, 0.8);
+  border-radius: 10px;
+  padding: 15px;
+  width: 28%;
+  min-width: 150px;
+  max-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
+/* Feature Heading Styling */
 .feature h2 {
-    font-size: 1.2rem;
-    color: #007acc;
-    margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #007acc;
+  margin-bottom: 8px;
 }
 
+/* Feature Paragraph Styling */
 .feature p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
