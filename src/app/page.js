@@ -120,24 +120,54 @@ export default async function Home() {
   </div>
 </section>
 
+      {/* Section 3: Mission and Contact */}
+      <section id="section3" className={`${styles.section} ${styles.contactSection}`}>
+        <div className={styles.contactContainer}>
+          {/* Mission Box */}
+          <div className={styles.missionBox}>
+            <h2 className={styles.missionHeader}>Our Mission</h2>
+            <p className={styles.missionText}>
+              At GreenScan, we are committed to promoting a sustainable and eco-friendly lifestyle.
+              Our mission is to empower individuals and communities to take actionable steps toward
+              water conservation, waste reduction, and environmental protection. We strive to make
+              sustainability accessible and achievable for everyone, providing resources and tools
+              that inspire positive change. By connecting people through shared values and eco-conscious
+              practices, we believe in building a greener, cleaner future for generations to come.
+            </p>
+          </div>
 
+          
+          <form className={styles.form}>
+            <div className={styles.inputGroup}>
+              <input type="text" placeholder="Name" className={styles.input} />
+              <input type="email" placeholder="Email" className={styles.input} />
+            </div>
+            <textarea placeholder="Reach out with any concerns or questions!" className={styles.textarea}></textarea>
+            <button type="submit" className={styles.button}>Send Message</button>
+          </form>
 
-
-
-
-
-
-
-
-
-      {/* Section 3 */}
-      <section id="section3" className={styles.section}>
-        {/* Add custom content for Section 3 */}
-      </section>
-
-      {/* Section 4 */}
-      <section id="section4" className={styles.section}>
-        {/* Add custom content for Section 4 */}
+          {/* Social Media Links */}
+          <div className={styles.socialMedia}>
+            <h3>Connect With Us</h3>
+            <div className={styles.socialIcons}>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/facebook.png" alt="Facebook" className={styles.icon} />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/twitter.png" alt="Twitter" className={styles.icon} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/instagram.png" alt="Instagram" className={styles.icon} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <img src="/icons/linkedin.png" alt="LinkedIn" className={styles.icon} />
+              </a>
+                </div>
+          </div>
+          <p className={styles.copyright}>
+            © {new Date().getFullYear()} GreenScan. All rights reserved.
+          </p>
+        </div>
       </section>
     </div>
   );
