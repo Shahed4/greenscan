@@ -20,9 +20,11 @@ export const renderPredictions = (predictions, ctx) => {
     const isNotPerson = prediction.class !== "person";
 
     // Add to uniqueDisplayNames only if adding is allowed
+    if(isNotPerson){
     if (addingAllowed && !uniqueDisplayNames.includes(prediction.class)) {
       uniqueDisplayNames.push(prediction.class);
     }
+  }
 
     // Draw bounding box
     ctx.strokeStyle = isPerson ? "#FF0000" : "#00FFFF";
