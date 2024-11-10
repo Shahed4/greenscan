@@ -14,27 +14,27 @@ export default async function Home() {
 
       <div className={styles.container}>
         <nav className={styles.topnav}>
-          <Link href="/" className={styles.link}>
-            Home
+          <Link href="/" className={styles.logoContainer}>
+            <img className={styles.img} src="/logo.png" alt="Logo" />
+            <div className={styles.brand}>
+              <h2 className={styles.firstbrand}>Green</h2>
+              <h2 className={styles.secondbrand}>Scan</h2>
+            </div>
           </Link>
-          <Link href="/image-processing" className={styles.link}>
-            Processing
-          </Link>
-          {user ? (
-            <Link
-              href="/api/auth/logout"
-              className={`${styles.link} ${styles.signin}`}
-            >
-              Logout
+          <div className={styles.navLinks}>
+            <Link href="/image-processing" className={`${styles.link} ${styles.processing}`}>
+              Processing
             </Link>
-          ) : (
-            <Link
-              href="/api/auth/login?returnTo=/image-processing"
-              className={`${styles.link} ${styles.signin}`}
-            >
-              Login
-            </Link>
-          )}
+            {user ? (
+              <Link href="/api/auth/logout" className={`${styles.link} ${styles.signin}`}>
+                Logout
+              </Link>
+            ) : (
+              <Link href="/api/auth/login?returnTo=/image-processing" className={`${styles.link} ${styles.signin}`}>
+                Login
+              </Link>
+            )}
+          </div>
         </nav>
 
         <div>
@@ -59,6 +59,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
