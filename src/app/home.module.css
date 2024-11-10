@@ -26,8 +26,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Apply the background image only to the news section */
+#section2 {
+  background-image: url('/newsBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
 .newsSection {
-  background-color: #a8d0ff;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -35,11 +47,26 @@
 }
 
 .newsHeader {
-  font-size: 2rem;
-  color: white;
+  margin-bottom: 0px;
+  width:275px;
+  height: 125px; 
+  background-color: white;
+  color: black;
+  border-radius: 5%; 
   margin-bottom: 20px;
   text-align: center;
 }
+.newsHeaderh1{
+  font-style:oblique;
+  font-size: 3rem;
+  font-style: italic;
+} 
+.newsHeaderh4{
+  margin-top: 0px;
+  color: grey; 
+
+  font-style: italic;
+} 
 
 .newsGrid {
   display: flex;
@@ -187,7 +214,7 @@
 }
 
 .secondbrand {
-  color: black;
+  color: rgb(78, 78, 78);
 }
 
 /* Nav Links Container */
@@ -299,8 +326,8 @@
 
 /* Header and Subheader */
 .header {
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 3rem;
+  color: #141414;
   margin-bottom: 10px;
   font-weight: bold;
 }
