@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       messages: [
         { role: "user", content: prompt },
       ],
-      max_tokens: 1000,
+      max_tokens: 2000,
     });
     res.status(200).json({ text: completion.choices[0].message.content.trim() });
   } catch (error) {
