@@ -1,4 +1,4 @@
-import styles from "./page.module.css";
+import styles from "./home.module.css";
 import { getSession } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 

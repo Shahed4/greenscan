@@ -42,9 +42,9 @@ export default withPageAuthRequired(async function ImageProcessing(context) {
           <ObjectDetection />
         </div>
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Capture Image</button>
+          {/* <button className={styles.button}>Capture Image</button>
           <button className={styles.button}>Upload New Image</button>
-          <button className={styles.button}>View Suggestions</button>
+          <button className={styles.button}>View Suggestions</button> */}
         </div>
       </div>
     </div>
