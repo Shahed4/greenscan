@@ -1,23 +1,61 @@
+/* Wrapper for full-page scrolling with snapping */
+.wrapper {
+  background-color: #CCC;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999; 
+  height: 800px;
+}
+
+
+/* Each section takes full height of the viewport and snaps to the start */
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section 2: Black screen with centered "TEST" text */
+.blackScreen {
+  background-color: black;
+}
+
+.testText {
+  color: white;
+  font-size: 4rem;
+  font-family: Arial, sans-serif;
+}
+
 /* Main Document Container */
 .document {
   background-color: transparent;
-  position: fixed;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  position: relative; /* Removed fixed positioning */
+  height: 100%; /* Fill its parent, which is the section */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Background Video Styling */
 .backgroundVideo {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
@@ -36,6 +74,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 /* Navigation Bar Styling */
@@ -63,7 +102,7 @@
 }
 
 .logoContainer:hover {
-  background-color: transparent; /* Remove hover effect */
+  background-color: transparent;
 }
 
 .img {
@@ -100,6 +139,10 @@
   transition: background-color 0.3s ease;
 }
 
+.link:hover {
+  background-color: #005b99;
+}
+
 /* Header Styling */
 .header {
   font-size: 4rem;
@@ -115,6 +158,7 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  margin: 0;
 }
 
 /* Individual Feature Box */
@@ -162,6 +206,7 @@
   font-size: 1rem;
 }
 
+/* Link Hover */
 .link:hover {
   background-color: #005b99;
 }
